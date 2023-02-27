@@ -1,0 +1,133 @@
+:root {
+    --background: #080C18;
+    --textarea: #0D1220;
+    --codetext: #547B92;
+    --bottontext: #FFFFFF;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    text-transform: capitalize;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 30px;
+    background-color: var(--background);
+}
+textarea {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 10px;
+
+    width: 100%;
+    height: 200px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--codetext);
+
+    background-color: var(--textarea);
+    border-radius: 20px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+    border: none;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+}
+textarea::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+textarea::-webkit-scrollbar-thumb {
+    background: #1DB954;
+    border-radius: 10px;
+}
+textarea::-webkit-scrollbar-track {
+    background: #0D1220;
+    border-radius: 10px;
+}
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 36px;
+    gap: 10px;
+
+    width: 100%;
+    height: 64px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--bottontext);
+
+    background: linear-gradient(195.31deg, rgba(7, 164, 63, 0.3) 10.74%, rgba(2, 167, 60, 0) 129.38%), radial-gradient(45.13% 114.16% at -12.37% 68%, #FFF500 0.01%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(72.39% 183.12% at 105.15% 119.44%, #00A3FF 0%, #ADFF00 0.01%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(70.62% 178.64% at 89.34% 3.76%, #00A3FF 0%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1DB954;
+    background-blend-mode: luminosity, normal, normal, normal, normal;
+    border-radius: 20px;
+    border: none;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+#result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 30px;
+
+    width: 300px;
+    height: 300px;
+
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+}
+#result {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+#mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
