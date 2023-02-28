@@ -1,4 +1,5 @@
 function show() {
+    addHeader();
     // 获取文本框中的内容
     var text = document.getElementsByName("text")[0].value;
     // 获取DIV
@@ -41,7 +42,6 @@ function show() {
             };
             xhr.send();
         })(p, fanyi);
-        addHeader();
         //执行完成后 执行showPw()方法
         showPw();
     }
@@ -84,9 +84,15 @@ function gouxuan() {
 
 function addHeader() {
     var header = document.getElementsByTagName("header")[0];
-    var html =
-        "<label class='switch'><span class='slider round'>听写模式</span><img id='onoff' src='img/on.svg' /><input type='checkbox' id='checkbox' onclick='gouxuan()'></label>";
-    header.innerHTML += html;
+    var label = header.getElementsByTagName("label");
+    if (label.length == 0) {
+        var header = document.getElementsByTagName("header")[0];
+        var html =
+            "<label class='switch'><span class='slider round'>听写模式</span><img id='onoff' src='img/on.svg' /><input type='checkbox' id='checkbox' onclick='gouxuan()'></label>";
+        header.innerHTML += html;
+    } else {
+        return;
+    }
 }
 
 
