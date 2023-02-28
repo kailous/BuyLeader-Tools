@@ -25,7 +25,7 @@ body {
 }
 #input {
     width: 100%;
-    height: 100px;
+    height: 150px;
     box-sizing: border-box;
     border: none;
     outline: none;
@@ -129,4 +129,98 @@ body {
 }
 #show li div {
     color: #fff;
+}
+
+/*#sudu!*定义range轨道*! {*/
+/*    width: 100%;*/
+/*    height: 15px;*/
+/*    background: #fff;*/
+/*    border-radius: 10px;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*}*/
+.fenge {
+    color: #dcdcdc;
+}
+#settings {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 25px;
+    position: relative;
+    /* width: 100%; */
+    background:none;
+}
+#start {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+
+    width: 100%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+
+    color: #FFFFFF;
+    background: linear-gradient(195.31deg, rgba(7, 164, 63, 0.3) 10.74%, rgba(2, 167, 60, 0) 129.38%), radial-gradient(45.13% 114.16% at -12.37% 68%, #FFF500 0.01%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(72.39% 183.12% at 105.15% 119.44%, #00A3FF 0%, #ADFF00 0.01%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(70.62% 178.64% at 89.34% 3.76%, #00A3FF 0%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1DB954;
+    background-blend-mode: luminosity, normal, normal, normal, normal;
+    border-radius: 20px;
+    border: none;
+}
+#settings p {
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    /*不换行*/
+    white-space: nowrap;
+
+    text-transform: capitalize;
+}
+/*定义range滑块*/
+#sudu {
+    /* -webkit-appearance 所有属性都有哪些值 */
+    /* none 无样式 */
+    /* slider-horizontal 水平滑块 */
+    /* slider-vertical 垂直滑块 */
+    /* sliderthumb-horizontal 水平滑块 */
+    /* sliderthumb-vertical 垂直滑块 */
+    /* caret 指针 */
+    /* searchfield 搜索框 */
+    /* textfield 文本框 */
+
+    -webkit-appearance: sliderthumb-horizontal;
+    width: 200px;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    position: relative;
+    z-index: 2;
+}
+@media screen and (max-width: 750px) {
+    #settings {
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #sudu {
+        margin: 10px 0 0 0;
+        width: 100%;
+    }
+    #settings p {
+        margin: 0;
+        width: 100%;
+    }
+    .fenge {
+        display: none;
+    }
 }
