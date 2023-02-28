@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Title</title>
+    <title>Mingts 鸣词｜英语读词卡</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Description">
     <meta name="author" content="Author">
@@ -13,6 +13,11 @@
     <script src="js.js"></script>
 </head>
 <body>
+    <header>
+        <img id="logo" src="img/logo.svg" alt="logo" />
+        <p>英语读词卡</p>
+    </header>
+    <main>
     <textarea id="input" name="text" placeholder="请输入单词，每个单词一行。"></textarea>
     <div id="settings">
     <button id="start" name="show" type="button" onclick="show()">生成单词卡片</button>
@@ -22,5 +27,10 @@
     <p>滑动划块调整语速</p>
     </div>
 <div id="show"></div>
+    </main>
+    <footer>
+        <p>© 2023 <a href="https://rainforest-kailous.notion.site/" target="_blank">iN RainForest</a></p>
+        <p><a href="https://github.com/kailous/" target="_blank">Code producer<img src="img/github.svg" alt="github" /></a></p>
+    </footer>
 </body>
 </html>

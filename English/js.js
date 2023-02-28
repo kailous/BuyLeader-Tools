@@ -13,7 +13,7 @@ function show() {
             lines[i] +
             "\")'><p>" +
             lines[i] +
-            "</p><img src='play.svg'><span id='fanyi'></span></li>";
+            "</p><pw style='display:none;'>******</pw><img src='img/play.svg'><span id='fanyi'></span></li>";
     }
     html += "</ul>";
     show.innerHTML = html;
@@ -41,7 +41,11 @@ function show() {
             };
             xhr.send();
         })(p, fanyi);
+        addHeader();
+        //执行完成后 执行showPw()方法
+        showPw();
     }
+
 }
 
 
@@ -62,6 +66,7 @@ function autoTranslate() {
         };
         xhr.send();
     }
+
 }
 function play(text) {
     // 获取#myRange的值并除以10，设置变量名称为 sudu
@@ -71,4 +76,53 @@ function play(text) {
     // 设置语速
     utterance.rate = sudu;
     speechSynthesis.speak(utterance);
+}
+// 方法 gouxuan() 执行showPw()方法
+function gouxuan() {
+    showPw();
+}
+
+function addHeader() {
+    var header = document.getElementsByTagName("header")[0];
+    var html =
+        "<label class='switch'><span class='slider round'>听写模式</span><img id='onoff' src='img/on.svg' /><input type='checkbox' id='checkbox' onclick='gouxuan()'></label>";
+    header.innerHTML += html;
+}
+
+
+// 判断 checkbox
+// 如果选中，显示li>pw，隐藏li>p
+// 如果未选中，显示li>p，隐藏li>pw
+function showPw() {
+    var checkbox = document.getElementById("checkbox");
+    var lis = document.getElementsByTagName("li");
+    if (checkbox.checked) {
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].getElementsByTagName("p")[0].style.display = "none";
+            lis[i].getElementsByTagName("pw")[0].style.display = "block";
+            // 隐藏textarea
+            document.getElementsByName("text")[0].style.display = "none";
+            // 修改 #start 颜色为灰色，删除 #start 的 onclick 事件
+            document.getElementById("start").style.background = "gray";
+            document.getElementById("start").removeAttribute("onclick");
+            // 修改 #start 的内容为 "听写模式无法生成新的卡片"
+            document.getElementById("start").innerHTML = "听写模式无法生成新的卡片";
+            // 修改 #onoff 的 src为"off.svg"
+            document.getElementById("onoff").src = "img/off.svg";
+        }
+    } else {
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].getElementsByTagName("p")[0].style.display = "block";
+            lis[i].getElementsByTagName("pw")[0].style.display = "none";
+            // 显示textarea
+            document.getElementsByName("text")[0].style.display = "block";
+            // 恢复 #start 颜色 ，添加 #start 的 onclick 事件
+            document.getElementById("start").style.background = "var(--botton-background";
+            document.getElementById("start").setAttribute("onclick", "show()");
+            // 恢复 #start 的内容为 "生成单词卡片"
+            document.getElementById("start").innerHTML = "生成单词卡片";
+            // 恢复 #onoff 的 src为"on.svg"
+            document.getElementById("onoff").src = "img/on.svg";
+        }
+    }
 }

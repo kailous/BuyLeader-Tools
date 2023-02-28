@@ -1,4 +1,5 @@
 :root {
+    --botton-background: linear-gradient(195.31deg, rgba(7, 164, 63, 0.3) 10.74%, rgba(2, 167, 60, 0) 129.38%), radial-gradient(45.13% 114.16% at -12.37% 68%, #FFF500 0.01%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(72.39% 183.12% at 105.15% 119.44%, #00A3FF 0%, #ADFF00 0.01%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(70.62% 178.64% at 89.34% 3.76%, #00A3FF 0%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1DB954;
     --input-background-color: #606060;
     --input-font-color: #dcdcdc;
     --main-color: #f0f0f0;
@@ -20,6 +21,15 @@
     --12: linear-gradient(135deg, #74EBD5 0%, #9FACE6 100%);
 }
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+/*body,html最大化填满窗口*/
+body, html {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -30,7 +40,7 @@ body {
     border: none;
     outline: none;
     resize: none;
-    padding: 10px;
+    padding: 20px;
     background-color: var(--input-background-color);
     color: var(--input-font-color);
 }
@@ -41,7 +51,7 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
 
-
+    background: inherit;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -117,7 +127,7 @@ body {
 /*    过度动画0.35秒*/
     transition: all 0.35s;
 }
-#show li p {
+#show li p, #show li pw {
     margin: 0;
     padding: 0;
     font-size: 32px;
@@ -170,7 +180,7 @@ body {
     line-height: 100%;
 
     color: #FFFFFF;
-    background: linear-gradient(195.31deg, rgba(7, 164, 63, 0.3) 10.74%, rgba(2, 167, 60, 0) 129.38%), radial-gradient(45.13% 114.16% at -12.37% 68%, #FFF500 0.01%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(72.39% 183.12% at 105.15% 119.44%, #00A3FF 0%, #ADFF00 0.01%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(70.62% 178.64% at 89.34% 3.76%, #00A3FF 0%, rgba(29, 201, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1DB954;
+    background: var(--botton-background);
     background-blend-mode: luminosity, normal, normal, normal, normal;
     border-radius: 20px;
     border: none;
@@ -188,23 +198,9 @@ body {
 }
 /*定义range滑块*/
 #sudu {
-    /* -webkit-appearance 所有属性都有哪些值 */
-    /* none 无样式 */
-    /* slider-horizontal 水平滑块 */
-    /* slider-vertical 垂直滑块 */
-    /* sliderthumb-horizontal 水平滑块 */
-    /* sliderthumb-vertical 垂直滑块 */
-    /* caret 指针 */
-    /* searchfield 搜索框 */
-    /* textfield 文本框 */
-
-    -webkit-appearance: sliderthumb-horizontal;
     width: 200px;
-    height: 100%;
-    background: transparent;
-    outline: none;
     position: relative;
-    z-index: 2;
+    /*z-index: 2;*/
 }
 @media screen and (max-width: 750px) {
     #settings {
@@ -223,4 +219,96 @@ body {
     .fenge {
         display: none;
     }
+}
+header {
+    display: flex;
+    /*左对齐*/
+    justify-content: flex-start;
+    /*垂直居中*/
+    align-items: center;
+    padding: 20px;
+    gap: 25px;
+    width: 100%;
+    background:#ffffff;
+/*    滚动式浮动在顶层*/
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-sizing: border-box;
+}
+header #logo {
+    height: 32px;
+}
+header p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    /*不换行*/
+    white-space: nowrap;
+
+    text-transform: capitalize;
+    color: #868686;
+}
+main {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background: #e3e3e3;
+}
+footer {
+    display: flex;
+    /*左对齐*/
+    justify-content: flex-start;
+    /*垂直居中*/
+    align-items: center;
+    padding: 20px;
+    gap: 25px;
+    width: 100%;
+    height: 60px;
+    background:#ffffff;
+/*    固定在底部*/
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    box-sizing: border-box;
+}
+footer img {
+    height: 24px;
+    opacity: 0.5;
+}
+footer p, footer a {
+    display: flex;
+    /*左对齐*/
+    justify-content: flex-start;
+    /*垂直居中*/
+    align-items: center;
+    gap: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    /*不换行*/
+    white-space: nowrap;
+
+    text-transform: capitalize;
+    color: #868686;
+}
+footer p a {
+    text-decoration: none;
+}
+/*.switch 在header的最右边靠右对齐*/
+header .switch {
+    display: flex;
+    /*右对齐*/
+    justify-content: flex-end;
+    /*垂直居中*/
+    align-items: center;
+    gap:10px;
+    margin-left: auto;
+}
+/*input checkbox*/
+.switch input {
+    display: none;
 }
