@@ -64,9 +64,11 @@ function autoTranslate() {
     }
 }
 function play(text) {
+    // 获取#myRange的值并除以10，设置变量名称为 sudu
+    var sudu = document.getElementById("sudu").value / 10;
     // 语音朗读
-    // speechSynthesis.speak(new SpeechSynthesisUtterance(text));
     var utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.8; // 将语速设置为0.8倍正常语速
+    // 设置语速
+    utterance.rate = sudu;
     speechSynthesis.speak(utterance);
 }
