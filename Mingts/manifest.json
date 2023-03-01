@@ -1,0 +1,33 @@
+{
+    "name": "Mingts 鸣词",
+    "short_name": "Mingts",
+    "description": "将输入的单词生成为读词卡",
+    "icons": [
+        {
+            "src": "img/appicon.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "img/appicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "img/appicon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007aff",
+    "author": "Kailous",
+    "related_applications": [
+        {
+            "platform": "web",
+            "url": "https://rainforest-kailous.notion.site/"
+        }
+    ]
+}
